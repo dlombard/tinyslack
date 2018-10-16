@@ -1,0 +1,11 @@
+// @import "styles/index";
+
+.wrapper {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+}
+
+.rightContent {
+  flex-grow: 1;
+}

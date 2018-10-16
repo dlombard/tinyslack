@@ -9,7 +9,8 @@
   "author": "Dave McCarthy",
   "dependencies": {
     "ejs": "^2.6.1",
-    "express-session": "^1.15.6"
+    "express-session": "^1.15.6",
+    "mongodb-stitch-browser-sdk": "^4.0.14"
   },
   "devDependencies": {
     "express": "^4.16.0",
