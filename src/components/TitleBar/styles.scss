@@ -1,8 +1,14 @@
+@import "index";
+
 .bar {
-  height: 80px;
+  height: 60px;
   width: 100%;
   display: flex;
   align-items: center;
   padding: 0 2rem;
   border-bottom: 1px solid #eaeaea;
+}
+
+.title {
+  color: $color--black;
 }

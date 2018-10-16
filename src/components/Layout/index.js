@@ -4,11 +4,13 @@ import styles from './styles.scss'
 
 export default class Layout extends PureComponent {
   render() {
+    const {children} = this.props
+
     return (
       <div className={styles.wrapper}>
         <SideNavigation />
         <div className={styles.rightContent}>
-          <TitleBar />
+          {children}
         </div>
       </div>
     )

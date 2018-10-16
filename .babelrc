@@ -18,7 +18,8 @@
         "Styles": "./src/styles",
         "Mocks": "./__mocks__",
         "History": "./src/history",
-        "Store": "./src/store"
+        "Store": "./src/store",
+        "Stitch": "./src/StitchClient"
       }
     }]
   ],

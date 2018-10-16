@@ -1,8 +1,26 @@
-// @import "styles/index";
+@import "index";
 
 .navigation {
   height: 100vh;
   width: 300px;
-  // background-color: $styles--light-gray;
-  background-color: #eeeeee;
+  background-color: $color--black;
+  color: $color--white;
+}
+
+.header {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: {
+    left: 1rem;
+    right: 1rem;
+  }
+}
+
+.organizationName {
+  margin-bottom: 0;
+}
+
+.userName {
+  color: $color--gray;
 }
