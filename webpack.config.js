@@ -6,13 +6,7 @@ const autoprefixer = require('autoprefixer')
 module.exports = {
   context: path.resolve(__dirname),
   entry: {
-    index: path.resolve(__dirname, 'src/entry/index.js'),
-    client: path.resolve(__dirname, 'src/entry/App.js'),
-    login: path.resolve(__dirname, 'src/entry/login.js'),
-    signup: path.resolve(__dirname, 'src/entry/signup.js'),
-    'recover-account-names': path.resolve(__dirname, 'src/entry/recover-account-names.js'),
-    'reset-password': path.resolve(__dirname, 'src/entry/reset-password.js'),
-    'set-new-password': path.resolve(__dirname, 'src/entry/set-new-password.js'),
+    index: path.resolve(__dirname, 'src/index.js'),
   },
   output: {
     path: path.resolve(__dirname, './dist/'),
