@@ -1,0 +1,31 @@
+{
+  "presets": [
+    ["es2015", {"modules": false}],
+    "stage-0",
+    "react"
+  ],
+
+  "plugins": [
+    ["module-resolver", {
+      "alias": {
+        "Actions": "./src/actions",
+        "Reducers": "./src/reducers",
+        "Components": "./src/components",
+        "Pages": "./src/pages",
+        "Layouts": "./src/layouts",
+        "Constants": "./src/constants",
+        "Utils": "./src/utilities",
+        "Styles": "./src/styles",
+        "Mocks": "./__mocks__",
+        "History": "./src/history",
+        "Store": "./src/store"
+      }
+    }]
+  ],
+
+  "env": {
+    "test": {
+      "presets": [["es2015"], "stage-0", "react"]
+    }
+  }
+}
