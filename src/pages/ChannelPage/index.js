@@ -4,19 +4,19 @@ import {TitleBar} from 'Components'
 
 class ChannelPage extends PureComponent {
   render() {
-    const {channelId} = this.props
+    const {channelName} = this.props
 
     return (
       <Fragment>
-        <TitleBar />
-        <h1>This is channel: {channelId}</h1>
+        <TitleBar title={channelName} />
+        <h1>This is channel: {channelName}</h1>
       </Fragment>
     )
   }
 }
 
 const mapStateToProps = (state, ownProps) => ({
-  channelId: ownProps.params.channelId,
+  channelName: ownProps.params.channelId,
 })
 
 export default connect(mapStateToProps)(ChannelPage)

@@ -1,8 +1,9 @@
 import React, {PureComponent} from 'react'
-import {SideNavigation, TitleBar} from 'Components'
+import {SideNavigation} from 'Components'
+import {DefaultPage} from 'Pages'
 import styles from './styles.scss'
 
-export default class Layout extends PureComponent {
+export default class AppLayout extends PureComponent {
   render() {
     const {children} = this.props
 
@@ -10,7 +11,7 @@ export default class Layout extends PureComponent {
       <div className={styles.wrapper}>
         <SideNavigation />
         <div className={styles.rightContent}>
-          {children}
+          {children || <DefaultPage />}
         </div>
       </div>
     )

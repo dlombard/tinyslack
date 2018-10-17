@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 import {signUpUser} from 'Actions/user'
+import {AuthLayout} from 'Components'
 import styles from './styles.scss'
 
 class SignupPage extends PureComponent {
@@ -13,8 +14,9 @@ class SignupPage extends PureComponent {
     const {email, password} = this.state
 
     return (
-      <div className={styles.wrapper}>
-        <span>{email},{password}</span>
+      <AuthLayout>
+        <h1>Sign Up</h1>
+
         <form className={styles.form} onSubmit={this.onSubmit}>
           <fieldset className={styles.fieldset}>
             <label htmlFor='email'>Email</label>
@@ -28,7 +30,7 @@ class SignupPage extends PureComponent {
 
           <button type='submit'>Sign Up</button>
         </form>
-      </div>
+      </AuthLayout>
     )
   }
 
