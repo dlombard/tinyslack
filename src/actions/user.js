@@ -39,15 +39,10 @@ export const confirmUserEmail = ({token, tokenId}) => async (dispatch) => {
 export const logInUser = ({email, password}) => async (dispatch) => {
   const credential = new UserPasswordCredential(email, password)
 
-  try {
-    dispatch({
-      type: USER__LOG_IN,
-      payload: await Stitch.auth.loginWithCredential(credential),
-    })
-  }
-  catch(error) {
-    console.error(error)
-  }
+  dispatch({
+    type: USER__LOG_IN,
+    payload: await Stitch.auth.loginWithCredential(credential),
+  })
 }
 
 export const logOutUser = () => async (dispatch) => {

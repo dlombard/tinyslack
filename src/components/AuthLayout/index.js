@@ -7,8 +7,9 @@ export default class AuthLayout extends PureComponent {
 
     return (
       <div className={styles.wrapper}>
-        <div>Auth Layout</div>
-        {children}
+        <section className={styles.content}>
+          {children}
+        </section>
       </div>
     )
   }

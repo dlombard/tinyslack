@@ -1,7 +1,8 @@
 import React, {PureComponent} from 'react'
+import {Link} from 'react-router'
 import {connect} from 'react-redux'
 import {signUpUser} from 'Actions/user'
-import {AuthLayout} from 'Components'
+import {AuthLayout, TextInput, Button} from 'Components'
 import styles from './styles.scss'
 
 class SignupPage extends PureComponent {
@@ -18,18 +19,26 @@ class SignupPage extends PureComponent {
         <h1>Sign Up</h1>
 
         <form className={styles.form} onSubmit={this.onSubmit}>
-          <fieldset className={styles.fieldset}>
-            <label htmlFor='email'>Email</label>
-            <input onChange={this.onChange} value={email} type='email' name='email' />
-          </fieldset>
+          <TextInput
+            name='email'
+            type='email'
+            value={email}
+            onChange={this.onChange}
+            label='Email'
+            placeholder='johnnyappleseed@email.com' />
 
-          <fieldset className={styles.fieldset}>
-            <label htmlFor='password'>Password</label>
-            <input onChange={this.onChange} value={password} type='password' name='password' />
-          </fieldset>
+          <TextInput
+            name='password'
+            type='password'
+            value={password}
+            onChange={this.onChange}
+            label='Password'
+            placeholder='Enter a secure password' />
 
-          <button type='submit'>Sign Up</button>
+          <Button type='submit'>Sign Up</Button>
         </form>
+
+        <p>Already have an account? <Link to='/login'>Log in</Link> here.</p>
       </AuthLayout>
     )
   }

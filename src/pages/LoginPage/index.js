@@ -1,35 +1,50 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
+import {Link} from 'react-router'
 import {push} from 'react-router-redux'
 import {logInUser} from 'Actions/user'
-import {AuthLayout} from 'Components'
+import {AuthLayout, TextInput, Button} from 'Components'
 import styles from './styles.scss'
 
 class LoginPage extends PureComponent {
   state = {
     email: '',
     password: '',
+    error: null,
   }
 
   render() {
-    const {email, password} = this.state
+    const {email, password, error} = this.state
 
     return (
       <AuthLayout>
         <h1>Log In</h1>
+
+        {error &&
+          <div>Invalid login</div>
+        }
+
         <form className={styles.form} onSubmit={this.onSubmit}>
-          <fieldset className={styles.fieldset}>
-            <label htmlFor='email'>Email</label>
-            <input onChange={this.onChange} value={email} type='email' name='email' />
-          </fieldset>
+          <TextInput
+            name='email'
+            type='email'
+            value={email}
+            onChange={this.onChange}
+            label='Email'
+            placeholder='johnnyappleseed@email.com' />
 
-          <fieldset className={styles.fieldset}>
-            <label htmlFor='password'>Password</label>
-            <input onChange={this.onChange} value={password} type='password' name='password' />
-          </fieldset>
+          <TextInput
+            name='password'
+            type='password'
+            value={password}
+            onChange={this.onChange}
+            label='Password'
+            placeholder='Enter a secure password' />
 
-          <button type='submit'>Sign Up</button>
+          <Button type='submit'>Log In</Button>
         </form>
+
+        <p>Don't have an account yet? <Link to='/signup'>Sign up</Link> instead!</p>
       </AuthLayout>
     )
   }
@@ -46,8 +61,13 @@ class LoginPage extends PureComponent {
 
     e.preventDefault()
 
-    await logInUser({email, password})
-    pushLocation('/')
+    try {
+      await logInUser({email, password})
+      pushLocation('/')
+    }
+    catch (error) {
+      this.setState({error})
+    }
   }
 }
 
