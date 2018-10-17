@@ -7,6 +7,11 @@ export default class AuthLayout extends PureComponent {
 
     return (
       <div className={styles.wrapper}>
+        <img
+          className={styles.logo}
+          src="/images/mongoslack.svg"
+          alt="Monoslack Logo" />
+
         <section className={styles.content}>
           {children}
         </section>
