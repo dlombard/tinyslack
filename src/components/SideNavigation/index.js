@@ -35,14 +35,14 @@ class SideNavigation extends PureComponent {
         </label>
         {channels.map((channel) => (
           <Link
-            className={`${styles.channel} ${pathEnd === channel.channelId ? styles.sActive : ''}`}
-            key={channel.channelId}
-            to={`/channel/${channel.channelId}`}>
+            className={`${styles.channel} ${pathEnd === channel._id.toHexString() ? styles.sActive : ''}`}
+            key={channel._id}
+            to={`/channel/${channel._id}`}>
             #&nbsp;&nbsp;
-            {channel.channelName}
+            {channel.name}
           </Link>
         ))}
-        <button onClick={this.logOut}>Log Out</button>
+        <div className={styles.logOutButton} onClick={this.logOut}>Log Out</div>
 
         <CreateChannelModal />
       </nav>

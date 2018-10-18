@@ -5,6 +5,7 @@
   width: 300px;
   background-color: $color--black;
   color: $color--white;
+  position: relative;
 }
 
 .header {
@@ -32,6 +33,7 @@
   align-items: center;
   font-size: 14px;
   color: $color--gray;
+  margin-bottom: 0.3rem;
   padding: {
     left: 1rem;
     right: 1rem;
@@ -75,5 +77,25 @@
   &:hover {
     background-color: rgba(255, 255, 255, 0.2);
     color: $color--white;
+  }
+}
+
+.logOutButton {
+  transition: all 0.05s ease-out;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  border-top: 1px solid rgba(#F26C4F, 0.3);
+  color: #F26C4F;
+  height: 50px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(#F26C4F, 0.1);
   }
 }

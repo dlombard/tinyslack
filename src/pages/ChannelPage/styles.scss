@@ -1,0 +1,72 @@
+@import 'index';
+
+$messageBarHeight: 50px;
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100vh;
+}
+
+.messageBar {
+  display: flex;
+  position: absolute;
+  bottom: 1rem;
+  left: 2rem;
+  right: 2rem;
+  height: $messageBarHeight;
+}
+
+.messageBarInput {
+  flex-grow: 1;
+  border-radius: 5px 0 0 5px;
+  border: 2px solid $color--gray;
+  outline: none;
+  font-size: 16px;
+  padding: {
+    left: 1rem;
+    right: 1rem;
+  }
+}
+
+.messageBarSend {
+  border-radius: 0 5px 5px 0;
+  border: 2px solid $color--gray {
+    left: 0;
+  }
+  font-size: 16px;
+  color: $color--green;
+  font-weight: bold;
+  padding: {
+    left: 1rem;
+    right: 1rem;
+  }
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba($color--green, 0.1);
+    outline: none;
+  }
+
+  &:active {
+    background-color: rgba($color--green, 0.3);
+  }
+}
+
+.messageContainer {
+  position: relative;
+  overflow: auto;
+  margin-bottom: calc(#{$messageBarHeight} + 1rem);
+}
+
+.messageWrapper {
+  color: $color--black;
+  padding: {
+    left: 2rem;
+    right: 2rem;
+    top: 0.8rem;
+    bottom: 0.8rem;
+  }
+}

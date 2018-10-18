@@ -12,3 +12,5 @@ export const UI__CLOSE_MODAL = 'UI__CLOSE_MODAL'
 // Channels
 export const CHANNEL__CREATE = 'CHANNEL__CREATE'
 export const CHANNELS__LOAD = 'CHANNELS__LOAD'
+
+export const MESSAGES__LOAD = 'MESSAGES__LOAD'
