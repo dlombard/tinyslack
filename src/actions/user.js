@@ -8,10 +8,18 @@ import {
   USER__LOG_IN,
   USER__CONFIRM_EMAIL,
   USER__LOG_OUT,
+  USER__LOAD,
 } from 'Constants'
 
 const emailPassClient = Stitch.auth
   .getProviderClient(UserPasswordAuthProviderClient.factory)
+
+export const getCurrentUser = () => (dispatch) => {
+  dispatch({
+    type: USER__LOAD,
+    payload: Stitch.auth.user,
+  })
+}
 
 export const signUpUser = ({email, password}) => async (dispatch) => {
   try {
@@ -27,7 +35,6 @@ export const signUpUser = ({email, password}) => async (dispatch) => {
 export const confirmUserEmail = ({token, tokenId}) => async (dispatch) => {
   try {
     await emailPassClient.confirmUser(token, tokenId)
-    await Stitch.callFunction('addUser', {})
 
     dispatch({type: USER__CONFIRM_EMAIL})
   }
@@ -38,10 +45,12 @@ export const confirmUserEmail = ({token, tokenId}) => async (dispatch) => {
 
 export const logInUser = ({email, password}) => async (dispatch) => {
   const credential = new UserPasswordCredential(email, password)
+  const user = await Stitch.auth.loginWithCredential(credential)
+  await Stitch.callFunction('addUser', [{}])
 
   dispatch({
     type: USER__LOG_IN,
-    payload: await Stitch.auth.loginWithCredential(credential),
+    payload: user,
   })
 }
 

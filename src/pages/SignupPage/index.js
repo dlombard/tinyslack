@@ -1,6 +1,7 @@
 import React, {PureComponent} from 'react'
 import {Link} from 'react-router'
 import {connect} from 'react-redux'
+import {push} from 'react-router-redux'
 import {signUpUser} from 'Actions/user'
 import {AuthLayout, TextInput, Button} from 'Components'
 import styles from './styles.scss'
@@ -49,18 +50,25 @@ class SignupPage extends PureComponent {
     this.setState({[name]: value})
   }
 
-  onSubmit = (e) => {
+  onSubmit = async (e) => {
     const {email, password} = this.state
-    const {signUpUser} = this.props
+    const {signUpUser, pushLocation} = this.props
 
     e.preventDefault()
 
-    signUpUser({email, password})
+    try {
+      await signUpUser({email, password})
+      pushLocation('/')
+    }
+    catch (error) {
+      this.setState({error})
+    }
   }
 }
 
 const mapDispatchToProps = (dispatch) => ({
   signUpUser: (data) => dispatch(signUpUser(data)),
+  pushLocation: (to) => dispatch(push(to)),
 })
 
 export default connect(() => ({}), mapDispatchToProps)(SignupPage)

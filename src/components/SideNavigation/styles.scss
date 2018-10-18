@@ -15,6 +15,7 @@
     left: 1rem;
     right: 1rem;
   }
+  border-bottom: 1px solid rgba($color--gray, 0.1);
 }
 
 .organizationName {
@@ -23,4 +24,56 @@
 
 .userName {
   color: $color--gray;
+}
+
+.channelLabel {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: $color--gray;
+  padding: {
+    left: 1rem;
+    right: 1rem;
+  }
+}
+
+.channel {
+  transition: all 0.05s ease-out;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  padding: {
+    left: 1rem;
+    right: 1rem;
+  }
+  text-decoration: none;
+  color: $color--light-gray;
+
+  &:hover {
+    background-color: rgba($color--green, 0.1);
+  }
+
+  &.sActive {
+    background-color: $color--green;
+    color: $color--white;
+  }
+}
+
+.openModalButton {
+  transition: all 0.05s ease-out;
+  cursor: pointer;
+  border-radius: 50px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 1.5rem;
+  width: 1.5rem;
+  border: 1px solid rgba($color--light-gray, 0.5);
+  color: $color--light-gray;
+
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: $color--white;
+  }
 }

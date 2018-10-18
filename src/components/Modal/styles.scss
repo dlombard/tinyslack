@@ -1,0 +1,104 @@
+
+@import 'index';
+
+.backdrop {
+  transition: opacity 0.1s ease-in-out;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba($color--black, 0.92);
+  opacity: 0;
+  pointer-events: none;
+
+  &.sActive {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.wrapper {
+  transition: opacity 0.1s ease-in-out, transform 0.1s ease-in-out;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translate3d(0, -1rem, 0);
+
+  &.sActive {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.modal {
+  pointer-events: none;
+  padding: 2rem 3rem;
+  min-width: 480px;
+  margin: {
+    left: 2rem;
+    right: 2rem;
+  }
+  max-width: 650px;
+  background-color: $color--white;
+  color: $color--black;
+  position: relative;
+
+  .sActive & {
+    pointer-events: auto;
+  }
+
+  &.mConfirm {
+    min-width: 400px;
+  }
+}
+
+.closeModal {
+  cursor: pointer;
+  position: absolute;
+  padding: 1rem 1rem;
+  top: 1rem;
+  right: 1rem;
+
+  &:hover {
+    &:before, &:after {
+      background-color: darken($color--gray, 15%);
+    }
+  }
+
+  &:before, &:after {
+    transition: all 0.05s ease-out;
+    content: "";
+    height: 3px;
+    width: 16px;
+    background-color: $color--gray;
+    position: absolute;
+    margin: auto;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  &:before {
+    transform: rotate(45deg);
+  }
+
+  &:after {
+    transform: rotate(-45deg);
+  }
+}
+
+.confirmMessage {
+  margin: {
+    top: 0;
+    bottom: 0;
+  }
+}
