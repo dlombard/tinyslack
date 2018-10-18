@@ -29,7 +29,7 @@ class ChannelPage extends PureComponent {
   componentDidMount() {
     setTimeout(this.getMessages, 300)
 
-    this.polling = new Poll(this.getMessages, {interval: 20000})
+    this.polling = new Poll(this.getMessages, {interval: 1500})
     this.polling.start()
   }
 
